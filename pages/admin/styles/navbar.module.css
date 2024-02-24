@@ -1,0 +1,81 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  /* height: 100vh; */
+  overflow: hidden;
+  background: rgb(30, 30, 48);
+  padding: 20px;
+}
+
+.leftContent {
+  flex-grow: 1;
+  width: 20%;
+}
+
+.food {
+  color: #f5f5f5;
+  font-family: Mukta;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 50px;
+  letter-spacing: 0.84px;
+  background: rgb(39, 40, 60);
+  height: 58px;
+}
+
+.rightContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 80%;
+  background: rgb(39, 40, 60);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 25px 25px;
+}
+.adminbtn {
+  margin-bottom: 10px;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+}
+.adminsvg {
+  color: #fff;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.lang {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+
+/* 
+
+@media only screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .leftContent, .rightContent {
+    width: 100%;
+  }
+} 
+
+ */
+
+
+
+
+
+
+

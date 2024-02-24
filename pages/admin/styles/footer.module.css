@@ -1,0 +1,51 @@
+.footer {
+  width: 100%; 
+  background-color: #121111;
+  padding: 20px;
+  border-radius: 20px;
+  
+  
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(39, 40, 60);
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid rgba(156, 57, 57, 0.622);
+
+}
+
+.iconContainer {
+  margin-right: 20px;
+  
+}
+
+.icon {
+  width: 70px;
+  height: 50px;
+  
+}
+
+.textContainer {
+  text-align: center;
+  color: #fff;
+  
+}
+
+.text {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.version,
+.year {
+  margin: 5px 0;
+  font-size: 14px;
+  
+}
+
+

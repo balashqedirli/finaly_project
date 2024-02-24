@@ -1,0 +1,159 @@
+.dashboardContent {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.boxSmall {
+  width: 40%;
+  height: 462px;
+  margin-top: 11px;
+  margin-right: 40px;
+  border-radius: 14px;
+  background: rgb(39, 40, 60);
+  border-radius: 14px;
+  border: 1px solid darkslategrey;
+}
+
+.boxBig {
+  margin-right: 15px;
+  width: 60%;
+  height: 462px;
+  border-radius: 14px;
+  background: rgb(39, 40, 60);
+  border-radius: 14px;
+  margin-top: 11px;
+  border: 1px solid darkslategrey;
+  position: relative;
+}
+
+.main {
+  width: 100%;
+}
+
+.boxBig2 {
+  width: 40%;
+  height: 462px;
+  margin-top: 11px;
+  margin-left: 40px;
+  border-radius: 14px;
+
+  background: rgb(39, 40, 60);
+  border-radius: 14px;
+  border: 1px solid darkslategrey;
+  margin-right: 15px;
+}
+
+.boxSmall2 {
+  width: 60%;
+  height: 462px;
+  border-radius: 14px;
+  background: rgb(39, 40, 60);
+  border-radius: 14px;
+  margin-top: 11px;
+  border: 1px solid darkslategrey;
+}
+
+.boxSmall,
+.boxBig,
+.boxBig2,
+.boxSmall2 {
+  border: 1px solid darkslategrey;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.boxSmall:hover,
+.boxBig:hover,
+.boxBig2:hover,
+.boxSmall2:hover {
+  transform: scale(1.03);
+  border-color: darkslategrey;
+}
+
+.orders,
+.total {
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 16px;
+  border-radius: 14px 0 14px 0;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: bisque;
+}
+.diag {
+  margin-bottom: 80px;
+}
+.year {
+  color: rgb(144, 132, 132);
+  font-size: 16px;
+  margin-top: 18px;
+}
+
+.caption {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  color: white;
+}
+
+.keyword {
+  margin-right: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.keyword::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.keyword:nth-child(1)::before {
+  background-color: rgb(235, 87, 87);
+}
+
+.keyword:nth-child(2)::before {
+  background-color: rgb(168, 64, 105);
+}
+
+.keyword:nth-child(3)::before {
+  background-color: rgb(187, 107, 217);
+}
+
+@media (max-width: 768px) {
+  .dashboardContent {
+    flex-direction: column;
+  }
+
+  .boxSmall,
+  .boxBig,
+  .boxBig2,
+  .boxSmall2 {
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  .boxSmall {
+    margin-right: 0;
+  }
+
+  .boxBig2 {
+    margin-left: 0;
+  }
+
+  .caption {
+    position: static;
+    margin-top: 10px;
+    left: 0;
+  }
+}

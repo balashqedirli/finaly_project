@@ -1,0 +1,28 @@
+.box {
+  display: flex;
+}
+
+.bck {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 100vh;
+  background: rgb(30, 30, 48);
+}
+
+.main {
+  flex: 1;
+  background: rgb(30, 30, 48);
+}
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .box {
+    flex-direction: column;
+  }
+}

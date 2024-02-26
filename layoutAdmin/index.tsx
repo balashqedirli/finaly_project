@@ -4,6 +4,7 @@ import Footer from "../pages/admin/Footer/index";
 import styles from "./layoutAdmin.module.css";
 
 import React, { ReactNode } from "react";
+import Link from "next/link";
 
 interface LayoutAdminProps {
   children: ReactNode;
@@ -15,10 +16,9 @@ export default function LayoutAdmin({ children }: LayoutAdminProps) {
       <Navbar />
       <div className={styles.box}>
         <Sidebar />
+        
 
         <main className={styles.main}>{children}</main>
-        
-        
       </div>
       <div>
         <Footer />
@@ -26,6 +26,3 @@ export default function LayoutAdmin({ children }: LayoutAdminProps) {
     </div>
   );
 }
-
-
-

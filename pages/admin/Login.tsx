@@ -7,7 +7,6 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import React from "react";
 
-
 export default function Login() {
   const { formatMessage } = useIntl();
   const [username, setUsername] = useState("");
@@ -27,18 +26,12 @@ export default function Login() {
     event.preventDefault();
     if (username === "adminB" && password === "BG12345") {
       setError("");
-      router.push("admin/Dashboard"); 
-      
-      
+      router.push("admin/Dashboard");
     } else {
-      setError(formatMessage({ id: 'error' }));
+      setError(formatMessage({ id: "error" }));
       setTimeout(() => setError(""), 4000);
     }
-    
-
   };
-
-
 
   return (
     <div className={styles.back}>
@@ -57,7 +50,6 @@ export default function Login() {
               placeholder="Username"
               value={username}
               onChange={handleUsernameChange}
-             
             />
             <input
               className={styles.input}
@@ -77,18 +69,14 @@ export default function Login() {
             </button>
           </form>
         </div>
-        
+
         <div className={styles.imgContainer}>
           <Image src={images} alt="background" />
           <div className={styles.lang}>
-          <Language />
-            
+            <Language />
           </div>
         </div>
       </div>
     </div>
   );
 }
-
-
-

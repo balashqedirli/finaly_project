@@ -3,7 +3,8 @@ import Image from "next/image";
 import admin from "../../../public/images/admin.png";
 import { FormattedMessage, useIntl } from "react-intl";
 import Language from "../../../Components/language/Language";
-import Product from "../Product";
+import ProductButton from "../ProductButton/index";
+
 
 
 export default function Navbar() {
@@ -17,7 +18,7 @@ export default function Navbar() {
       <div className={styles.rightContent}>
         <div className={styles.navbar}>
        
-          <Product />
+         <ProductButton  />
 
           <div className={styles.lang}>
             <Language />

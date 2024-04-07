@@ -1,27 +1,27 @@
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
-import axios from "axios";
+import Foody from '../pages/Components/FoodyClient/index';
+import Features from "./Components/Features";
+import ClientMenu from '../pages/Components/ClientMenu/index'
+import Pizza from '../pages/Components/Pizza/index';
+import French from '../pages/Components/French/index';
+import FastFood from '../pages/Components/Fastfood/index';
+import Footer from "../pages/Components/Footer/index";
 const Home: NextPage = () => {
-  // const handleUpload = (e: any) => {
-  //   const file = e.target.files[0];
-  //   const formData = new FormData();
-  //   formData.append("file", file);
 
-  //   axios({
-  //     method: "POST",
-  //     url: "/api/uploads",
-  //     headers: {
-  //       "Content-Type": "multi-part",
-  //     },
-  //     data: formData,
-  //   });
-  // };
+  
 
   return (
-    <>    
+   <div>
+    <Foody />
+    <Features />
+    <ClientMenu />
+    <Pizza />
+    <French />
+    <FastFood />
+    <Footer />
 
-    </>
+    
+   </div>
   );
 };
 

@@ -1,0 +1,56 @@
+.container {
+  width: 90%;
+  margin: 0 auto;
+
+  padding: 20px;
+}
+
+.text {
+  font-weight: 900;
+  font-size: 60px;
+  margin-left: 20px;
+  width: 85%;
+}
+
+.contentContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  flex: 1;
+}
+
+.paragraph {
+  margin-top: 20px;
+  margin-left: 1.5rem;
+  font-size: 22px;
+  font-weight: 400;
+  width: 85%;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.imageContainer {
+  width: 650px;
+  height: 650px;
+}
+
+@media (max-width: 768px) {
+  .contentContainer {
+    flex-direction: column;
+  }
+
+  .text {
+    font-size: 40px;
+  }
+
+  .paragraph {
+    font-size: 18px;
+  }
+
+  .imageContainer {
+    width: 100%;
+    height: auto;
+  }
+}

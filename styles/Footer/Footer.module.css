@@ -1,0 +1,164 @@
+.footer {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  position: relative;
+}
+
+.footerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.exploreButton {
+  background-color: #ffa500;
+  color: #fff;
+  border: none;
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 30px;
+}
+
+.exploreButton:hover {
+  background-color: #cc8400;
+}
+
+.footerBottom {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.footerSection h5 {
+  color: #ffa500;
+  margin-bottom: 10px;
+}
+
+.footerSection ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footerSection ul li {
+  margin-bottom: 5px;
+}
+
+.footerSection .socialLinks {
+  display: flex;
+  margin-top: 10px;
+}
+
+.footerSection .socialLinks img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.footerRights {
+  text-align: center;
+  width: 100%;
+  margin-top: 40px;
+  border-top: 1px solid #333;
+  padding-top: 10px;
+}
+
+.brandName {
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #ffa500;
+}
+
+.featuredContent {
+  width: 70%;
+  height: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 40px;
+  background-color: #000;
+  border-radius: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 40px;
+}
+
+.featuredBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.featuredContentText {
+  flex-grow: 1;
+  text-align: center;
+  padding: 0 40px;
+}
+
+.featuredContentText h2 {
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.featuredImages {
+  width: 45%;
+  margin: 0 20px;
+}
+
+.featuredImages img {
+  width: 100%;
+}
+
+.img {
+  width: 200px;
+  height: 200px;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px;
+  }
+
+  .footerSection {
+    margin-bottom: 20px;
+  }
+
+  .brandName {
+    font-size: 1.2em;
+  }
+
+  .featuredContent {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .featuredBox {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .featuredImages {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .img {
+    width: 150px;
+    height: 150px;
+  }
+}

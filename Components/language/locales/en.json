@@ -1,4 +1,5 @@
 {
     "welcome":"welcome admin",
-    "error":"username or password is incorrect"
+    "error":"username or password is incorrect",
+    "hello":"hello world"
 }

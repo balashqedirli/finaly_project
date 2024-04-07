@@ -4,6 +4,9 @@ import azerbaijanFlag from "../../public/images/Azerbaijan.png";
 import englishFlag from "../../public/images/English.png";
 import russianFlag from "../../public/images/Russia.png";
 import Image from "next/image";
+import styles from './language.module.css';
+
+
 export default function Language() {
   const router = useRouter();
   const [showFlags, setShowFlags] = React.useState(false);
@@ -18,13 +21,13 @@ export default function Language() {
   };
 
   return (
-    <div>
-      <button onClick={toggleFlags}>
+    <div className={styles.languageContainer}>
+      <button onClick={toggleFlags} className={styles.flagButton}>
         <Image src={englishFlag} alt="English Flag" width={50} height={30} />
       </button>
       {showFlags && (
-        <div>
-          <button onClick={() => handleFlagClick("az")}>
+        <div className={styles.flagsDropdown}>
+          <button onClick={() => handleFlagClick("az")} className={styles.flagButton}>
             <Image
               src={azerbaijanFlag}
               alt="Azerbaijan Flag"
@@ -32,7 +35,7 @@ export default function Language() {
               height={30}
             />
           </button>
-          <button onClick={() => handleFlagClick("en")}>
+          <button onClick={() => handleFlagClick("en")} className={styles.flagButton}>
             <Image
               src={englishFlag}
               alt="English Flag"
@@ -40,7 +43,7 @@ export default function Language() {
               height={30}
             />
           </button>
-          <button onClick={() => handleFlagClick("ru")}>
+          <button onClick={() => handleFlagClick("ru")} className={styles.flagButton}>
             <Image
               src={russianFlag}
               alt="Russian Flag"

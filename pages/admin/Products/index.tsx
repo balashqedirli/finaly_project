@@ -4,19 +4,12 @@ import styles from "../styles/products.module.css";
 import axios from "axios";
 import editIcon from "../../../public/images/edit.svg";
 import deleteIcon from "../../../public/images/delete.svg";
-
-interface Product {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  img_url: string;
-}
+import Image from "next/image";
 
 export default function Products() {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetchProducts();
@@ -25,8 +18,7 @@ export default function Products() {
   const fetchProducts = async () => {
     try {
       const response = await axios.get("http://localhost:3000/api/products");
-      console.log("API response:", response.data);
-      setProducts(response.data.result);
+      setProducts(response.data.result.data);
       setLoading(false);
     } catch (error) {
       console.error("Error fetching products:", error);
@@ -35,17 +27,19 @@ export default function Products() {
     }
   };
 
-  const handleEdit = (productId: number) => {
+  const handleEdit = (productId) => {
     console.log("Edit clicked for product", productId);
+
   };
 
-  const handleDelete = async (productId: number) => {
+  const handleDelete = async (productId) => {
     try {
       await axios.delete(`http://localhost:3000/api/products/${productId}`);
-      console.log("Product deleted successfully");
-      fetchProducts();
+      alert("Product deleted successfully");
+      fetchProducts(); 
     } catch (error) {
       console.error("Error deleting product:", error);
+      alert("Error deleting product. Please try again.");
     }
   };
 
@@ -62,13 +56,16 @@ export default function Products() {
       <main className={styles.main}>
         {products &&
           products.length > 0 &&
-          products.data.map((product) => (
+          products.map((product) => (
             <div key={product.id} className={styles.product}>
               <div className={styles.imageContainer}>
-                <img
+                <Image
                   src={product.img_url}
                   alt={product.name}
                   className={styles.image}
+                  width={200}
+                  height={200}
+                  unoptimized={true}
                 />
               </div>
               <div className={styles.productDetails}>
@@ -77,13 +74,13 @@ export default function Products() {
                 <p className={styles.price}>Price: ${product.price}</p>
               </div>
               <div className={styles.icons}>
-                <img
+                <Image
                   src={editIcon}
                   alt="Edit"
                   className={styles.editIcon}
                   onClick={() => handleEdit(product.id)}
                 />
-                <img
+                <Image
                   src={deleteIcon}
                   alt="Delete"
                   className={styles.deleteIcon}

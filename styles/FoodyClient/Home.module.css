@@ -1,0 +1,153 @@
+.container {
+  width: 85%;
+  margin: 0 auto;
+  background-color: rgb(243, 244, 246);
+  min-height: 75vh;
+  padding: 20px;
+}
+
+.text {
+  font-weight: 900;
+  font-size: 60px;
+  margin-left: 20px;
+}
+
+.contentContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  flex: 1;
+}
+
+.btn,
+.btnn {
+  margin-top: 50px;
+  margin-right: 50px;
+  font-size: 30px;
+  border-radius: 15px;
+  color: #fff;
+  margin-left: 1.5rem;
+  width: 180px;
+  height: 80px;
+}
+.btn {
+  background: rgb(214, 54, 38);
+  border: 1px solid red;
+}
+.btnn {
+  background-color: rgb(130, 130, 130);
+  border: 2px solid rgb(130, 130, 130);
+}
+.paragraph {
+  margin-top: 20px;
+  margin-left: 1.5rem;
+  font-size: 23px;
+}
+
+.imageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+}
+
+.bigImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+}
+
+.imageWithCaption {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  border: 1px solid #fff;
+  background-color: #fff;
+  z-index: 2;
+  display: flex;
+  animation: growAndShrink 4s infinite alternate;
+}
+
+.caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+
+@keyframes growAndShrink {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.btn,
+.btnn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after,
+.btnn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transition: width 0.3s ease, height 0.3s ease;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+}
+
+.btnn::after {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover::after,
+.btnn:hover::after {
+  width: 0;
+  height: 0;
+}
+
+.hovered {
+  animation: colorChange 1s infinite alternate;
+}
+
+@media (max-width: 768px) {
+  .contentContainer {
+    flex-direction: column;
+  }
+
+  .btn,
+  .btnn {
+    font-size: 20px;
+    width: 150px;
+    height: 60px;
+    margin-top: 20px;
+    margin-right: 0;
+  }
+
+  .text {
+    font-size: 40px;
+  }
+
+  .paragraph {
+    font-size: 18px;
+  }
+
+  .imageContainer {
+    width: 100%;
+    height: auto;
+  }
+}

@@ -1,0 +1,19 @@
+ /* .languageContainer {
+  position: fixed;
+} 
+
+
+
+.flagsDropdown {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+} 
+
+.flagButton {
+  display: block;
+}
+.flagButton:hover {
+  background-color: #f0f0f0;
+}   */

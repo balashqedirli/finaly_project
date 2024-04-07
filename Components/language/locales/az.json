@@ -1,4 +1,5 @@
 {
     "welcome":"salam admin",
-    "error":"İstifadəçi adı və ya şifrə yanlışdır"
+    "error":"İstifadəçi adı və ya şifrə yanlışdır",
+    "hello":"salam dünya"
 }

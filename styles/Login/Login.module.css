@@ -1,0 +1,186 @@
+.container {
+  width: 90%;
+  height: 100px;
+  border-radius: 4px;
+  background: rgb(235, 87, 87);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: 15px;
+}
+
+.food {
+  color: rgb(255, 255, 255);
+  font-size: 36px;
+  font-weight: 800;
+  margin-left: 10px;
+  flex-grow: 1;
+}
+
+.lang {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.box {
+  border: 1px solid red;
+  background-color: red;
+  width: 50%;
+  margin-left: 92px;
+  margin-top: 20px;
+}
+
+.loginReg {
+  display: flex;
+}
+
+.loginContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.formContainer {
+  flex: 1;
+  padding: 20px;
+  margin-top: 15rem;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.tab {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.form {
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.input {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.loginButton {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: red;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.passwordContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.togglePassword {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  font-size: 14px;
+  color: #666;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.container {
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+.input:focus {
+  outline: none;
+  border: 2px solid #ff4757;
+  box-shadow: 0 0 8px #ff4757;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.loginButton:active {
+  transform: translateY(-2px);
+  box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.error {
+  display: block;
+  color: #ff4757;
+  font-size: 14px;
+  animation: slideInFromLeft 0.5s ease-out;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.messageContainer {
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff7675;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  animation: fadeInAndOut 2s ease-out;
+}
+
+@keyframes fadeInAndOut {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+

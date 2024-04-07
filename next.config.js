@@ -8,4 +8,10 @@ const nextConfig = {
   swcMinify: true,
 };
 
+module.exports = {
+  images: {
+    domains:  ['firebasestorage.googleapis.com'],
+  },
+}
+
 module.exports = nextConfig;

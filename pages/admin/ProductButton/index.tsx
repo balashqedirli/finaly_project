@@ -5,21 +5,13 @@ import upload from "../../../public/images/upload.svg";
 import cancelButton from "../../../public/images/cancelbutton.svg";
 import axios from "axios";
 
-interface Product {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  img_url: string;
-}
-
 export default function Product() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const nameRef = useRef<HTMLInputElement>(null);
-  const descriptionRef = useRef<HTMLTextAreaElement>(null);
+  const descriptionRef = useRef<HTMLInputElement>(null);
   const priceRef = useRef<HTMLInputElement>(null);
-  const selectedRestaurantRef = useRef<HTMLSelectElement>(null);
+  const selectedRestaurantRef = useRef<HTMLInputElement>(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -67,16 +59,16 @@ export default function Product() {
         restaurant,
         img_url: selectedImage,
       })
-      .then((response) => {
-        if (response.status === 201) {
-          alert("Product created successfully!");
-          setIsOpen(false);
+      .then((result) => {
+        if (result.status === 201) {
+          alert("Product registration successful");
+          // Yeni ürünü listeye eklemek için gerekli işlemleri burada yapabilirsiniz.
         } else {
-          alert("Product creation failed!");
+          alert("Product registration failed");
         }
       })
       .catch((error) => {
-        alert("Product creation failed!");
+        alert("Failed to register product");
       });
   }, [selectedImage]);
 
@@ -142,7 +134,7 @@ export default function Product() {
                 ></textarea>
                 <input
                   type="number"
-                  id="rakamInput"
+                  id="reqem"
                   min="0"
                   step="1"
                   placeholder="Price"

@@ -1,45 +1,247 @@
-.types {
-  display: flex;
-  flex-wrap: wrap;
-  border-radius: 15px;
-  width: 90%;
-  height: 90px;
-  margin-left: 20px;
+
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: -50%;
+  width: 50%;
+  height: 100%;
+  background: rgb(56, 57, 78);
+  transition: right 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.menuOpen {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: rgb(56, 57, 78);
+  transition: right 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.product {
+  box-sizing: border-box;
   border-radius: 14px;
 
   background: rgb(39, 40, 60);
-}
-
-.restaurants {
-  flex: 1;
-}
-
-.addButton {
-  border: 1px solid rgb(192, 53, 162);
-  border-radius: 12px;
   box-shadow: 0px 4px 4px 0px rgba(39, 174, 96, 0.2);
-  background: rgb(192, 53, 162);
-  color: #fff;
-  cursor: pointer;
-  margin-bottom: 40px;
-  padding: 8px 12px;
-  border: none;
-  margin-top: 14px;
+
+  color: rgb(192, 53, 162);
+  margin-bottom: 10px;
+  padding: 10px 30px;
 }
-.restaurants {
-  color: white;
+
+.pro,
+.upload {
+  color: rgb(199, 199, 199);
+  font-family: Roboto;
+  font-size: 25px;
+  font-weight: 500;
+  margin-left: 15px;
+}
+
+.upload {
   font-size: 20px;
+}
+
+.files {
+  width: 450px;
+  height: 100px;
+  border: 1px solid rgb(29, 26, 26);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(67, 68, 90);
+}
+
+.cont {
+  border-radius: 14px;
   cursor: pointer;
-  margin-top: 25px;
-  margin-left: 19px;
+  margin-left: 410px;
 }
 
-.addButton,
-.select {
-  font-size: 19px;
+.cancelButton {
+  width: 50px;
+  width: 40px;
 }
 
+.color {
+  color: #fff;
+}
+
+.description {
+  color: rgb(199, 199, 199);
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 1%;
+  text-align: left;
+  margin-top: 55px;
+  margin-left: 15px;
+}
+.boxing {
+  margin-left: 360px;
+}
+
+.inpCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.element {
+  width: 550px;
+  height: 500px;
+  border: 1px solid rgb(34, 32, 32);
+  background: rgb(67, 68, 90);
+  border-radius: 15px;
+}
+
+.txt,
+.area,
+.number,
 .select {
-  margin-top: 25px;
-  margin-right: 25px;
+  width: 90%;
+  height: 40px;
+  margin-top: 30px;
+  color: white;
+
+  background: rgb(90, 91, 112);
+}
+.area {
+  height: 150px;
+}
+
+.txt:hover,
+.area:hover,
+.number:hover,
+.select:hover {
+  box-shadow: 0 0 10px rgba(183, 183, 191, 0.947);
+}
+
+.select:hover {
+  background: rgb(86, 86, 88);
+}
+
+.txt:focus,
+.area:focus,
+.number:focus,
+.select:focus {
+  transform: scale(1.02);
+  transition: transform 0.3s ease-in-out;
+}
+
+.txt:focus,
+.area:focus,
+.number:focus,
+.select:focus {
+  background: rgb(65, 65, 68);
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 100px;
+}
+
+.cancelButton,
+.createProductButton {
+  padding: 40px 80px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  color: #fff;
+  border-radius: 14px;
+  width: 50%;
+}
+.buttonContainer {
+  border: 1px solid rgb(59, 57, 57);
+}
+.cancelButton {
+  background-color: rgba(214, 24, 24, 0.43);
+}
+.createProductButton {
+  background-color: rgba(0, 255, 0, 0.7);
+}
+
+.cancelButton:hover {
+  background-color: rgba(214, 24, 24, 0.43);
+}
+
+.createProductButton:hover {
+  background-color: rgba(0, 255, 0, 0.7);
+}
+
+.cancelButton:active {
+  transform: scale(0.95);
+}
+
+.createProductButton:active {
+  transform: scale(0.95);
+}
+
+@keyframes growAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.cancelButton,
+.createProductButton {
+  animation: growAnimation 1s ease-in-out;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.cancelButton:hover,
+.createProductButton:hover {
+  animation: float 0.5s ease-in-out infinite;
+}
+
+@media (max-width: 760px) {
+  .menuOpen {
+    width: 100%;
+  }
+
+  .element {
+    width: 100%;
+    height: auto;
+  }
+
+  .cancelButton,
+  .createProductButton {
+    width: 100%;
+  }
+
+  .files {
+    width: 100%;
+    margin-left: 0;
+  }
+  .boxing {
+    width: 100%;
+  }
 }

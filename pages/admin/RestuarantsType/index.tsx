@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import styles from "../styles/restuarantsType.module.css";
 
 import Image from "next/image";
@@ -9,6 +9,14 @@ import axios from "axios";
 export default function Product() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [name, setName] = useState("");
+  const [category, setCategory] = useState("");
+  const [cuisine, setCuisine] = useState("");
+  const [address, setAddress] = useState("");
+  const [deliveryMin, setDeliveryMin] = useState<number | undefined>(undefined);
+  const [deliveryPrice, setDeliveryPrice] = useState<number | undefined>(
+    undefined
+  );
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -22,13 +30,10 @@ export default function Product() {
   const handleClick = () => {
     const fileInput = document.createElement("input");
     fileInput.type = "file";
+    
     fileInput.onchange = (e) => {
       const fileInput = e.target as HTMLInputElement;
       const file = fileInput.files?.[0];
-      if (!file) {
-        return;
-      }
-
       if (!file) {
         return;
       }
@@ -52,16 +57,40 @@ export default function Product() {
     setSelectedImage(null);
   };
 
+  const handleCreateProduct = async () => {
+    if (deliveryMin === undefined || deliveryPrice === undefined) {
+      alert("butun xanalari doldurun");
+      return;
+    }
+    try {
+      const response = await axios
+        .post("http://localhost:3000/api/restuarants", {
+          name,
+          category_id: category,
+          img_url: selectedImage,
+          cuisine,
+          address,
+          delivery_min: deliveryMin,
+          delivery_price: deliveryPrice,
+        });
+      if (response.status === 200) {
+        alert("xeta");
+      }
+    } catch (error) {
+      console.error("Restoranda xeta", error);
+      alert("xeta oldu");
+    }
+  };
   return (
     <div className={styles.div}>
       <p className={styles.product} onClick={toggleMenu}>
-        + ADD RESTAURANTS
+        Add Restuarant{" "}
       </p>
 
       <div className={isOpen ? styles.menuOpen : styles.menu}>
         <div>
-          <p className={styles.pro}>Add Product</p>
-          <p className={styles.upload}>Upload your product image</p>
+          <p className={styles.pro}>Add Restuarant </p>
+          <p className={styles.upload}>Upload Image</p>
         </div>
 
         <div
@@ -72,30 +101,25 @@ export default function Product() {
         >
           <div className={styles.files}>
             {selectedImage && (
-              <img
-                src={selectedImage}
-                alt="Selected Image"
-                className={styles.img}
-              />
+              <img src={selectedImage} alt="Photos" className={styles.img} />
             )}
 
             {selectedImage && (
               <Image
                 src={cancelButton}
-                alt="cancel"
+                alt="Cancel"
                 onClick={handleCancelClick}
                 className={styles.cancelButton}
               />
             )}
 
-            <Image src={upload} alt="upload" />
+            <Image src={upload} alt="Upload" />
 
-            <p className={styles.color}>upload</p>
+            <p className={styles.color}>Upload</p>
           </div>
         </div>
         <div className={styles.description}>
-          <p>Add your Product description </p>
-          <p>and necessary information</p>
+          <p>Add your Restuarants information</p>
         </div>
         <div className={styles.boxing}>
           <div className={styles.element}>
@@ -103,30 +127,56 @@ export default function Product() {
               <form className={styles.inpCont}>
                 <input
                   type="text"
-                  id="text"
+                  id="name"
                   placeholder="Name"
                   className={styles.txt}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
-                <textarea
-                  name="text"
-                  id="text"
-                  className={styles.area}
-                  placeholder="Description"
-                ></textarea>
+                <input
+                  type="text"
+                  id="category"
+                  placeholder="Category"
+                  className={styles.txt}
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
+                />
+                <input
+                  type="text"
+                  id="cuisine"
+                  placeholder="Cuisine"
+                  className={styles.txt}
+                  value={cuisine}
+                  onChange={(e) => setCuisine(e.target.value)}
+                />
+                <input
+                  type="text"
+                  id="address"
+                  placeholder="Address"
+                  className={styles.txt}
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                />
                 <input
                   type="number"
-                  id="reqem"
+                  id="deliveryMin"
                   min="0"
                   step="1"
-                  placeholder="Price"
+                  placeholder="Delivery_Min"
                   className={styles.number}
+                  value={deliveryMin || ''}
+                  onChange={(e) => setDeliveryMin(parseInt(e.target.value))}
                 />
-
-                <select className={styles.select}>
-                  <option value="BurgerKing">Burger king</option>
-                  <option value="kfc">KFC</option>
-                  <option value="mcdonald">Mc Donald's</option>
-                </select>
+                <input
+                  type="number"
+                  id="deliveryPrice"
+                  min="0"
+                  step="1"
+                  placeholder="Delivery_Price"
+                  className={styles.number}
+                  value={deliveryPrice || ''}
+                  onChange={(e) => setDeliveryPrice(parseInt(e.target.value))}
+                />
               </form>
             </div>
           </div>
@@ -138,7 +188,12 @@ export default function Product() {
           >
             Cancel
           </button>
-          <button className={styles.createProductButton}>Create Product</button>
+          <button
+            className={styles.createProductButton}
+            onClick={handleCreateProduct}
+          >
+            Create Restuarant
+          </button>
         </div>
       </div>
     </div>

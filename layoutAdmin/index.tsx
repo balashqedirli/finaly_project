@@ -19,8 +19,7 @@ export default function LayoutAdmin({ children }: LayoutAdminProps) {
         <Sidebar />
 
         <main className={styles.main}>
-          <RestuarantsType />
-          {children}
+        {children}
         </main>
        
       </div>

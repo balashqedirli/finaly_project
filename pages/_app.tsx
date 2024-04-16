@@ -6,6 +6,9 @@ import enMessages from '../Components/language/locales/en.json';
 import ruMessages from '../Components/language/locales/ru.json';
 import { useRouter } from 'next/router';
 
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const queryClient = new QueryClient();
 type LocaleMessages = {
   [key: string]: { [key: string]: string };
 };
@@ -22,9 +25,12 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   };
 
   return ( 
+    <QueryClientProvider client={queryClient}>
+
     <IntlProvider locale={locale!} messages={messages[locale!]}>
       <Component {...pageProps} />
     </IntlProvider>
+    </QueryClientProvider>
+
   );
 }
-

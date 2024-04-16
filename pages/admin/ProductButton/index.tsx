@@ -4,24 +4,28 @@ import Image from "next/image";
 import upload from "../../../public/images/upload.svg";
 import cancelButton from "../../../public/images/cancelbutton.svg";
 import axios from "axios";
+import { response } from '../../../server/utils/response';
 
 export default function Product() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const nameRef = useRef<HTMLInputElement>(null);
-  const descriptionRef = useRef<HTMLInputElement>(null);
-  const priceRef = useRef<HTMLInputElement>(null);
-  const selectedRestaurantRef = useRef<HTMLInputElement>(null);
+  const [message, setMessage] = useState("");
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
+
   const handleClick = () => {
     const fileInput = document.createElement("input");
     fileInput.type = "file";
     fileInput.onchange = (e) => {
-      const file = (e.target as HTMLInputElement).files?.[0];
+      const fileInput = e.target as HTMLInputElement;
+      const file = fileInput.files?.[0];
       if (!file) {
         return;
       }
@@ -45,32 +49,46 @@ export default function Product() {
     setSelectedImage(null);
   };
 
-  const handleCreateProduct = useCallback(() => {
-    const name = nameRef.current?.value;
-    const description = descriptionRef.current?.value;
-    const price = priceRef.current?.value;
-    const restaurant = selectedRestaurantRef.current?.value;
+  const nameRef = useRef<HTMLInputElement>(null);
+  const descriptionRef = useRef<HTMLTextAreaElement>(null);
+  const restRef = useRef<HTMLSelectElement>(null);
+  const priceRef = useRef<HTMLInputElement>(null);
 
-    axios
-      .post("http://localhost:3000/api/products", {
-        name,
-        description,
-        price,
-        restaurant,
-        img_url: selectedImage,
-      })
-      .then((result) => {
-        if (result.status === 201) {
-          alert("Product registration successful");
-          // Yeni ürünü listeye eklemek için gerekli işlemleri burada yapabilirsiniz.
-        } else {
-          alert("Product registration failed");
-        }
+
+
+  const addProduct = async () => {
+    const productData = {
+      name: nameRef.current?.value,
+      description:descriptionRef.current?.value,
+      rest: restRef.current?.value,
+      price: priceRef.current?.value
+    }
+  
+    
+    
+    setIsOpen(false);
+    const name = nameRef.current?.value || "";
+    const description = descriptionRef.current?.value || "";
+    const rest = restRef.current?.value || "";
+    const price = priceRef.current?.value || "";
+    
+
+   
+    
+     await axios
+      .post("http://localhost:3000/api/products",{
+        name: nameRef.current?.value,
+        description:descriptionRef.current?.value,
+        rest: restRef.current?.value,
+        price: priceRef.current?.value
+      },{headers: {Authorization: 'BEARER YOUR_ACCES_TOKEN'}})
+      .then( result => {
+        console.log(result.config.data);
       })
       .catch((error) => {
-        alert("Failed to register product");
+        setMessage("Unable to add product",error.response.data);
       });
-  }, [selectedImage]);
+  };
 
   return (
     <div className={styles.div}>
@@ -80,13 +98,16 @@ export default function Product() {
 
       <div className={isOpen ? styles.menuOpen : styles.menu}>
         <div>
-          <p className={styles.pro} onClick={toggleMenu}>
-            Add Product
-          </p>
+          <p className={styles.pro}>Add Product</p>
           <p className={styles.upload}>Upload your product image</p>
         </div>
 
-        <div className={styles.cont} onClick={handleClick}>
+        <div
+          className={styles.cont}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          onClick={handleClick}
+        >
           <div className={styles.files}>
             {selectedImage && (
               <img
@@ -117,24 +138,23 @@ export default function Product() {
         <div className={styles.boxing}>
           <div className={styles.element}>
             <div className={styles.divCont}>
-              <form className={styles.inpCont}>
+              <form className={styles.inpCont} onSubmit={addProduct}>
                 <input
                   type="text"
-                  id="text"
+                  id="name"
                   placeholder="Name"
                   className={styles.txt}
                   ref={nameRef}
                 />
                 <textarea
-                  name="text"
-                  id="text"
+                  id="description"
                   className={styles.area}
                   placeholder="Description"
                   ref={descriptionRef}
                 ></textarea>
                 <input
                   type="number"
-                  id="reqem"
+                  id="price"
                   min="0"
                   step="1"
                   placeholder="Price"
@@ -142,7 +162,7 @@ export default function Product() {
                   ref={priceRef}
                 />
 
-                <select className={styles.select} ref={selectedRestaurantRef}>
+                <select className={styles.select} ref={restRef}>
                   <option value="BurgerKing">Burger king</option>
                   <option value="kfc">KFC</option>
                   <option value="mcdonald">Mc Donald's</option>
@@ -154,17 +174,23 @@ export default function Product() {
         <div className={styles.buttonContainer}>
           <button
             className={styles.cancelButton}
-            onClick={() => setIsOpen(false)}
+            onClick={() => {
+              setIsOpen(false);
+              setMessage("");
+            }}
           >
             Cancel
           </button>
           <button
-            onClick={handleCreateProduct}
             className={styles.createProductButton}
+            type="submit"
+            onClick={
+              addProduct  }
           >
             Create Product
           </button>
         </div>
+        {message && <p>{message}</p>}
       </div>
     </div>
   );

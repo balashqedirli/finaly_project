@@ -1,17 +1,16 @@
-import React, { useState, useCallback } from "react";
-import styles from "../styles/productButton.module.css";
+import React, { useState } from "react";
+import styles from "../styles/categoryType.module.css";
+
 import Image from "next/image";
 import upload from "../../../public/images/upload.svg";
 import cancelButton from "../../../public/images/cancelbutton.svg";
 import axios from "axios";
 
-export default function Product() {
+export default function Category() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [rest, setRest] = useState("");
-  const [price, setPrice] = useState("");
+  const [slug, setSlug] = useState("");
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -25,9 +24,10 @@ export default function Product() {
   const handleClick = () => {
     const fileInput = document.createElement("input");
     fileInput.type = "file";
+  
     fileInput.onchange = (e) => {
-      const fileInput = e.target as HTMLInputElement;
-      const file = fileInput.files?.[0];
+      const input = e.target as HTMLInputElement;
+      const file = input.files?.[0];
       if (!file) {
         return;
       }
@@ -51,43 +51,32 @@ export default function Product() {
     setSelectedImage(null);
   };
 
-  const handleCreateProduct = async () => {
-    if (description === "" || price === "") {
-      alert("Butun xanalari doldurun");
-      return;
-    }
+  const handleCreateCategory = async () => {
     try {
-      const response = await axios.post("http://localhost:3000/api/products", {
+      const response = await axios.post("http://localhost:3000/api/category", {
         name,
-        description,
+        slug,
         img_url: selectedImage,
-        rest_id: rest,
-        price,
       });
       if (response.status === 200) {
-        alert("Product created successfully!");
-    
+        alert("Success");
       }
     } catch (error) {
-      console.error("Error creating product:", error);
-      alert("An error occurred while creating the product");
+      console.error("Error creating restaurant", error);
+      alert("An error occurred");
     }
   };
-
-
-  
-  
 
   return (
     <div className={styles.div}>
       <p className={styles.product} onClick={toggleMenu}>
-        + ADD PRODUCT{" "}
+        Add Category
       </p>
 
       <div className={isOpen ? styles.menuOpen : styles.menu}>
         <div>
-          <p className={styles.pro}>Add Product</p>
-          <p className={styles.upload}>Upload your product image</p>
+          <p className={styles.pro}>Add Category</p>
+          <p className={styles.upload}>Upload Image</p>
         </div>
 
         <div
@@ -98,30 +87,25 @@ export default function Product() {
         >
           <div className={styles.files}>
             {selectedImage && (
-              <img
-                src={selectedImage}
-                alt="Selected Image"
-                className={styles.img}
-              />
+              <img src={selectedImage} alt="Photos" className={styles.img} />
             )}
 
             {selectedImage && (
               <Image
                 src={cancelButton}
-                alt="cancel"
+                alt="Cancel"
                 onClick={handleCancelClick}
                 className={styles.cancelButton}
               />
             )}
 
-            <Image src={upload} alt="upload" />
+            <Image src={upload} alt="Upload" />
 
-            <p className={styles.color}>upload</p>
+            <p className={styles.color}>Upload</p>
           </div>
         </div>
         <div className={styles.description}>
-          <p>Add your Product description </p>
-          <p>and necessary information</p>
+          <p>Add your Restaurants information</p>
         </div>
         <div className={styles.boxing}>
           <div className={styles.element}>
@@ -135,33 +119,14 @@ export default function Product() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
-                <textarea
-                  id="description"
-                  className={styles.area}
-                  placeholder="Description"
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                ></textarea>
                 <input
-                  type="number"
-                  id="price"
-                  min="0"
-                  step="1"
-                  placeholder="Price"
-                  className={styles.number}
-                  value={price || ""}
-                  onChange={(e) => setPrice(parseInt(e.target.value))}
+                  type="text"
+                  id="slug"
+                  placeholder="Slug"
+                  className={styles.txt}
+                  value={slug}
+                  onChange={(e) => setSlug(e.target.value)}
                 />
-
-                <select
-                  className={styles.select}
-                  value={rest}
-                  onChange={(e) => setRest(e.target.value)}
-                >
-                  <option value="BurgerKing">Burger king</option>
-                  <option value="kfc">KFC</option>
-                  <option value="mcdonald">Mc Donald's</option>
-                </select>
               </form>
             </div>
           </div>
@@ -169,21 +134,19 @@ export default function Product() {
         <div className={styles.buttonContainer}>
           <button
             className={styles.cancelButton}
-            
             onClick={() => setIsOpen(false)}
           >
             Cancel
           </button>
           <button
-  className={styles.createProductButton}
-  onClick={() => {
-    handleCreateProduct();
-      setIsOpen(false);
-  }}
->
-  Create Product
-</button>
-
+            className={styles.createProductButton}
+            onClick={() => {
+              handleCreateCategory();
+              setIsOpen(false);
+            }}
+          >
+            Create Category
+          </button>
         </div>
       </div>
     </div>

@@ -7,8 +7,11 @@ import Link from "next/link";
 import Eye from "../../public/images/eye.svg";
 import Eye2 from "../../public/images/eye2.svg";
 import axios from "axios";
+import type { NextAuthOptions } from "next-auth";
+import { CredentialsProvider } from "next-auth/providers";
 
-export default function Login() {
+
+export const options:NextAuthOptions() {
   const [showPassword, setShowPassword] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -63,6 +66,8 @@ export default function Login() {
           </div>
           <div className={styles.form}>
             <label className={styles.label}>
+              
+
               <p>Email</p>
               <input type="text" className={styles.input} ref={emailRef} />
             </label>
@@ -70,6 +75,7 @@ export default function Login() {
             <label className={styles.label}>
               <p>Password</p>
               <div className={styles.passwordContainer}>
+
                 <input
                   type={showPassword ? "text" : "password"}
                   className={styles.input}

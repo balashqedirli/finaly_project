@@ -6,7 +6,7 @@ import upload from "../../../public/images/upload.svg";
 import cancelButton from "../../../public/images/cancelbutton.svg";
 import axios from "axios";
 
-export default function Product() {
+export default function Restaurants() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [name, setName] = useState("");
@@ -75,12 +75,16 @@ export default function Product() {
         });
       if (response.status === 200) {
         alert("xeta");
+     
       }
     } catch (error) {
       console.error("Restoranda xeta", error);
       alert("xeta oldu");
     }
   };
+
+
+
   return (
     <div className={styles.div}>
       <p className={styles.product} onClick={toggleMenu}>
@@ -189,11 +193,14 @@ export default function Product() {
             Cancel
           </button>
           <button
-            className={styles.createProductButton}
-            onClick={handleCreateProduct}
-          >
-            Create Restuarant
-          </button>
+  className={styles.createProductButton}
+  onClick={() => {
+    handleCreateProduct();
+      setIsOpen(false);
+  }}
+>
+  Create Restaurant
+</button>
         </div>
       </div>
     </div>

@@ -1,0 +1,86 @@
+.restaurantCard {
+  display: inline-block;
+  border: 1px solid #ccc;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  width: 300px;
+  vertical-align: top;
+  margin-top: 45px;
+  
+}
+
+.imageContainer {
+  overflow: hidden;
+}
+
+.imageContainer img {
+  width: 250px;
+  height: 250px;
+}
+
+.details {
+  padding: 10px;
+}
+
+.address,
+.deliveryMin,
+.price,
+.cuisine {
+  margin: 5px 0;
+}
+
+.container {
+  display: flex;
+
+}
+
+.footerHeight {
+  min-height: 65rem;
+}
+
+.categories {
+  width: 15%;
+  margin-right: 20px;
+  animation: slideInFromLeft 1s ease;
+  font-size: 17px;
+}
+
+.categories button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 50px;
+}
+
+.categories button:hover {
+  background-color: #e0e0e0;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.container {
+  margin-left: 30px;
+}
+
+.container {
+  display: flex;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

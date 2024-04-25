@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import Navbar from '../pages/Components/Navbar';
+import Navbar from '../pages/Components/Navbar/index';
 
 
 
@@ -21,6 +21,3 @@ export default function LayoutClient({ children }: LayoutClientProps) {
     </div>
   );
 }
-
-
-

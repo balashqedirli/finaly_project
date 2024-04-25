@@ -7,8 +7,14 @@ import Link from "next/link";
 import Eye from "../../public/images/eye.svg";
 import Eye2 from "../../public/images/eye2.svg";
 import axios from "axios";
+import { useAuth } from "../AuthContext/Authcontext";
+
 
 export default function Register() {
+
+  const { login } = useAuth();
+
+
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState("");
@@ -28,44 +34,28 @@ export default function Register() {
     const username = usernameRef.current?.value;
     const fullname = fullnameRef.current?.value;
 
-    const errors: { [key: string]: string } = {};
-
-    if (!fullname) {
-      errors.fullname = "Full name is required";
-    }
-    if (!username) {
-      errors.username = "Username is required";
-    }
-    if (!email) {
-      errors.email = "Email is required";
-    }
-    if (!password) {
-      errors.password = "Password is required";
-    }
-
-    setErrors(errors);
-
-    if (Object.keys(errors).length === 0) {
-      axios
-        .post("http://localhost:3000/api/auth/signup", {
-          email,
-          password,
-          username,
-          fullname,
-        })
-        .then((result) => {
-          if (result.status === 201) {
-            setMessage("Registration successful");
-            setTimeout(() => setMessage(""), 3000); 
-          } else {
-            setMessage("Registration failed");
-          }
-        })
-        .catch((error) => {
-          setMessage("Failed to register");
-        });
-    }
+    axios
+      .post("http://localhost:3000/api/auth/signup", {
+        email,
+        password,
+        username,
+        fullname,
+      })
+      .then((result) => {
+        if (result.status === 201) {
+          
+          login(result.data.user); 
+          setMessage("Registration successful");
+          setTimeout(() => setMessage(""), 3000);
+        } else {
+          setMessage("Registration failed");
+        }
+      })
+      .catch((error) => {
+        setMessage("Failed to register");
+      });
   }, []);
+
 
   return (
     <>
@@ -155,3 +145,5 @@ export default function Register() {
     </>
   );
 }
+
+

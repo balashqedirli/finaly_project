@@ -5,6 +5,8 @@ import azMessages from '../Components/language/locales/az.json';
 import enMessages from '../Components/language/locales/en.json';
 import ruMessages from '../Components/language/locales/ru.json';
 import { useRouter } from 'next/router';
+import { AuthProvider } from '../pages/AuthContext/Authcontext';
+
 
 import { QueryClient, QueryClientProvider } from 'react-query';
 
@@ -25,12 +27,16 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   };
 
   return ( 
+    <AuthProvider>
+
     <QueryClientProvider client={queryClient}>
 
     <IntlProvider locale={locale!} messages={messages[locale!]}>
       <Component {...pageProps} />
     </IntlProvider>
     </QueryClientProvider>
+    </AuthProvider>
+
 
   );
 }

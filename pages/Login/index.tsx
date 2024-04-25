@@ -7,11 +7,13 @@ import Link from "next/link";
 import Eye from "../../public/images/eye.svg";
 import Eye2 from "../../public/images/eye2.svg";
 import axios from "axios";
-import type { NextAuthOptions } from "next-auth";
-import { CredentialsProvider } from "next-auth/providers";
+import { useAuth } from "../AuthContext/Authcontext";
+
+export default function Login () {
+
+  const { login } = useAuth();
 
 
-export const options:NextAuthOptions() {
   const [showPassword, setShowPassword] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -33,6 +35,8 @@ export const options:NextAuthOptions() {
       })
       .then((result) => {
         if (result.status === 200) {
+       
+          login(result.data.user);
           setMessage("Logged in successfully");
           setTimeout(() => setMessage(""), 3000);
         }
@@ -41,6 +45,7 @@ export const options:NextAuthOptions() {
         setMessage("Unable to log in");
       });
   }, []);
+
 
   return (
     <>
@@ -107,6 +112,4 @@ export const options:NextAuthOptions() {
     </>
   );
 }
-
-
 

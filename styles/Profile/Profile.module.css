@@ -1,0 +1,163 @@
+.container {
+  display: flex;
+}
+
+.newContent {
+  margin-left: 20px;
+  width: 66.5%;
+  height: 33rem;
+  background: rgb(243, 244, 246);
+  margin-top: 12px;
+  border: 1px solid rgb(8, 8, 8);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.newBox {
+  padding: 20px;
+}
+
+.uploadContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.uploadButton {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.profile {
+  color: rgb(79, 79, 79);
+  font-family: Mukta;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 3%;
+  text-align: left;
+}
+
+.uploadButton {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.uploadButton > * {
+  margin-bottom: 10px;
+}
+
+.newBox {
+  padding: 20px;
+}
+
+.uploadContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.uploadButton,
+.cancelButton {
+  cursor: pointer;
+}
+
+.profile {
+  color: rgb(79, 79, 79);
+  font-family: Mukta;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 3%;
+  text-align: left;
+}
+
+.contactBox {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.contactItemLeft,
+.contactItemRight {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+.contactItemLeft {
+  width: 35%;
+}
+
+.contactItemRight {
+  width: 35%;
+}
+
+.newContent:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.newBox {
+  padding: 20px;
+}
+
+.uploadButton > *,
+.cancelButton > * {
+  margin-bottom: 10px;
+}
+
+.contactItemLeft input,
+.contactItemRight input {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.contactItemLeft input:focus,
+.contactItemRight input:focus {
+  border-color: #007bff;
+}
+
+.saveButton {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 20px;
+}
+
+.saveButton:hover {
+  background-color: #0056b3;
+}
+
+.input:hover,
+.button:hover {
+  animation: pulse 1s;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+}
+
+

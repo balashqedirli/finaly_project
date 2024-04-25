@@ -6,6 +6,7 @@ import Image from "next/image";
 import styles from '../styles/restaurants.module.css';
 import deleteIcon from '../../../public/images/delete.svg'
 
+
 interface Restaurant {
   id: string;
   name: string;

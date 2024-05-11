@@ -24,7 +24,7 @@ export default function Category() {
   const handleClick = () => {
     const fileInput = document.createElement("input");
     fileInput.type = "file";
-  
+
     fileInput.onchange = (e) => {
       const input = e.target as HTMLInputElement;
       const file = input.files?.[0];

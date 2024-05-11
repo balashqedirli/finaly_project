@@ -1,10 +1,11 @@
-import { useState, ChangeEvent } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 import LayoutClient from "../../layoutClient";
 import ProfileSidebar from "../ProfileSidebar";
 import styles from "../../styles/Profile/Profile.module.css";
 import upload from "../../public/images/upload.svg";
 import Image from "next/image";
 import cancelButton from "../../public/images/UserCancelButton.svg";
+import Footer from "../Components/Footer";
 
 export default function Profile() {
   const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
@@ -15,6 +16,14 @@ export default function Profile() {
     email: "",
     address: "",
   });
+  const [saveStatus, setSaveStatus] = useState("");
+
+  useEffect(() => {
+    const savedContactInfo = localStorage.getItem("contactInfo");
+    if (savedContactInfo) {
+      setContactInfo(JSON.parse(savedContactInfo));
+    }
+  }, []);
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -40,7 +49,12 @@ export default function Profile() {
   };
 
   const handleSave = () => {
+    localStorage.setItem("contactInfo", JSON.stringify(contactInfo));
     console.log("Saved", contactInfo);
+    setSaveStatus("Successfully saved your information!");
+    setTimeout(() => {
+      setSaveStatus("");
+    }, 3000);
   };
 
   return (
@@ -85,6 +99,7 @@ export default function Profile() {
                   </button>
                 )}
               </div>
+              {saveStatus && <div className={styles.saveStatus}>{saveStatus}</div>}
             </div>
             <div className={styles.contactBox}>
               <div className={styles.contactItemLeft}>
@@ -141,7 +156,9 @@ export default function Profile() {
               </div>
             </div>
           </div>
+         
         </div>
+        <Footer />
       </main>
     </LayoutClient>
   );

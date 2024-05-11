@@ -64,10 +64,10 @@ export default function Navbar() {
                   <Link className={styles.menuItem} href="/Profile">
                     Profile
                   </Link>
-                  <Link className={styles.menuItem} href="/YourBasket">
+                  <Link className={styles.menuItem} href="/Basket">
                     Your Basket
                   </Link>
-                  <Link className={styles.menuItem} href="/YourOrders">
+                  <Link className={styles.menuItem} href="/Orders">
                     Your Orders
                   </Link>
                   <Link className={styles.menuItem} href="/Checkout">

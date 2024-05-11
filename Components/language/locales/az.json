@@ -1,5 +1,11 @@
 {
     "welcome":"salam admin",
     "error":"İstifadəçi adı və ya şifrə yanlışdır",
-    "hello":"salam dünya"
+    "hello":"salam dünya",
+    "text":"Qida saytımız yerli yeməkləri tapmağı asanlaşdırır",
+    "pg":"Hər sifariş üçün diqqətlə hazırladığımız yeməklərlə sizə unudulmaz dad təcrübəsi təqdim edirik.",
+    "about":"Haqqımızda",
+    "site":"Şirkətimiz illərin təcrübəsi ilə müştərilərinə keyfiyyətli və dadlı fast food variantları təqdim etməyi hədəfləyir. Missiyamız hər bir müştərinin zövqünə uyğun variantları təklif edərək onu məmnun etməkdir. Gigiyena və keyfiyyət standartlarımızı hər zaman ən yüksək səviyyədə saxlamaqla, müştərilərimizə etibarlı və sağlam yemək və içmə təcrübəsi təqdim edirik. Komandamız öz sahəsində mütəxəssis olan aşpazlardan ibarətdir və onların hər biri dadın sirlərini ən yaxşı şəkildə bilir və sizə ən təravətli və ləzzətli dadları təqdim edir. Müştəri məmnuniyyətini ön planda tutan yanaşmamızla hər gün daha yaxşısını təklif etməyə çalışırıq.",
+    "work":"Necə işləyir",
+    "foody":"Satış müddətində çatdırılma uzadıla bilər. Məkanınız üçün yenilənmiş təxmin üçün yoxlama səhifəsinə baxın. Nəzərə alın ki, sifariş verdikdən sonra sifarişinizi dəyişdirmək artıq mümkün deyil. Vergilər və rüsumlar bütün məhsul qiymətlərinə daxildir. Kredit kartı ilə ödəniş edərkən evinizdən və ya faktura ünvanınızdan fərqli ünvana çatdırılma ilə sifariş vermək mümkündür. Nəzərə alın ki, Klarna ödənişləri sifarişinizin qeydiyyatdan keçmiş ev ünvanınıza göndərilməsini tələb edir."
 }

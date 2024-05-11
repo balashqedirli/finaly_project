@@ -1,5 +1,6 @@
 .container {
   display: flex;
+  min-height: 80vh;
 }
 
 .newContent {
@@ -161,3 +162,45 @@
 }
 
 
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.saveStatus {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4caf50; 
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  animation: fadeInOut 3s ease-in-out; 
+}
+
+
+
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+   margin-bottom: 3rem;
+
+   
+  }
+
+  .newContent {
+    margin-top: 20px; 
+    width: 100%;
+    max-width: none;
+  }
+}

@@ -6,8 +6,9 @@ import hamburger from "../../public/images/aboutHamburger.svg";
 import pizza from "../../public/images/AboutPizza.svg";
 import soup from "../../public/images/AboutSoup.svg";
 import coffe from "../../public/images/AboutCoffe.svg";
-import background from '../../public/images/background.png';
+import background from "../../public/images/background.png";
 import Footer from "../Components/Footer";
+import { FormattedMessage } from "react-intl";
 const Index = () => {
   return (
     <LayoutClient>
@@ -16,17 +17,21 @@ const Index = () => {
           <div className={styles.contentContainer}>
             <div className={styles.content}>
               <h1 className={styles.text}>
-                About Us
+                <FormattedMessage id="about" />
               </h1>
 
               <p className={styles.paragraph}>
-                Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
+                <FormattedMessage id="site" />
               </p>
             </div>
 
             <div className={styles.imageContainer}>
               <div>
-                <Image src={background} alt="foody" className={styles.bigImage} />
+                <Image
+                  src={background}
+                  alt="foody"
+                  className={styles.bigImage}
+                />
 
                 <div
                   className={styles.imageWithCaption}
@@ -34,7 +39,6 @@ const Index = () => {
                 >
                   <Image src={hamburger} alt="hamburger" />
                   <div className={styles.caption}>Hamburger</div>
-              
                 </div>
                 <div
                   className={styles.imageWithCaption}
@@ -59,7 +63,6 @@ const Index = () => {
                 </div>
               </div>
             </div>
-           
           </div>
         </div>
         <Footer />

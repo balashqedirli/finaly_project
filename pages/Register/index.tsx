@@ -9,14 +9,24 @@ import Eye2 from "../../public/images/eye2.svg";
 import axios from "axios";
 import { useAuth } from "../AuthContext/Authcontext";
 
+interface Errors {
+  fullname?: string;
+  username?: string;
+  email?: string;
+  password?: string;
+}
+
+interface User {
+  fullname: string;
+  username: string;
+  email: string;
+}
 
 export default function Register() {
-
   const { login } = useAuth();
 
-
   const [showPassword, setShowPassword] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<Errors>({});
   const [message, setMessage] = useState("");
 
   const togglePasswordVisibility = () => {
@@ -35,27 +45,21 @@ export default function Register() {
     const fullname = fullnameRef.current?.value;
 
     axios
-      .post("http://localhost:3000/api/auth/signup", {
+      .post<User>("http://localhost:3000/api/auth/signup", {
         email,
         password,
         username,
         fullname,
       })
       .then((result) => {
-        if (result.status === 201) {
-          
-          login(result.data.user); 
-          setMessage("Registration successful");
-          setTimeout(() => setMessage(""), 3000);
-        } else {
-          setMessage("Registration failed");
-        }
+        login(result.data); 
+        setMessage("Registration successful");
+        setTimeout(() => setMessage(""), 3000);
       })
       .catch((error) => {
         setMessage("Failed to register");
       });
-  }, []);
-
+  }, [login]);
 
   return (
     <>
@@ -145,5 +149,3 @@ export default function Register() {
     </>
   );
 }
-
-

@@ -1,0 +1,68 @@
+.container {
+  display: flex;
+  min-height: 80vh;
+}
+
+.tableContainer {
+  overflow-x: auto;
+  width: 67%;
+  margin-top: 18px;
+  margin-left: 12px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #f2f2f2;
+}
+
+.table tr {
+  background-color: #fff;
+}
+
+.imageCell {
+  width: 150px;
+}
+
+.imageCell img {
+  width: 100%;
+  height: auto;
+}
+
+.deleteIcon {
+  cursor: pointer;
+}
+
+.deleteButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.deleteButton img {
+  width: 20px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+
+  .tableContainer {
+    margin-top: 20px;
+    width: 100%;
+    max-width: none;
+  }
+}

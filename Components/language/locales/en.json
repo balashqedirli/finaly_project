@@ -1,5 +1,12 @@
 {
     "welcome":"welcome admin",
     "error":"username or password is incorrect",
-    "hello":"hello world"
+    "hello":"hello world",
+    "text":"Our Food site makes it easy to find local food",
+    "pg":"We offer you an unforgettable taste experience with the meals we carefully prepare for each order.",
+    "about":"About Us",
+    "site":"Our company aims to offer quality and delicious fast food options to its customers with years of experience. Our mission is to satisfy every customer by offering options that suit their taste. By always keeping our hygiene and quality standards at the highest level, we offer our customers a reliable and healthy eating and drinking experience. Our team consists of chefs who are experts in their fields, and each of them knows the secrets of taste in the best way possible and offers you the freshest and most delicious tastes. With our approach that prioritizes customer satisfaction, we strive to offer better every day.",
+    "work":"How It Works",
+    "foody":"Delivery may be extended during sale periods. Please refer to the checkout page for an updated estimate for your location. Kindly note that once you have placed an order, it is no longer possible to modify your order. Taxes and duties are included in all product prices.It is possible to place an order with shipment to a different address than your home or billing address when paying with a credit card. Please note that Klarna payments require that your order is shipped to your registered home address."
+
 }

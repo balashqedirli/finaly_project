@@ -30,9 +30,9 @@ export default function Offer() {
       } else {
         console.error("API Response:", response.data);
       }
-    } catch (error) {
+    } catch (error: any) { 
       console.error("Error fetching offers:", error);
-      alert(`An error occurred while fetching offers: ${error.message}`);
+      alert(`An error occurred while fetching offers: ${(error as Error).message}`); 
     }
   }
 
@@ -47,9 +47,9 @@ export default function Offer() {
       await axios.delete(`http://localhost:3000/api/offer/${id}`);
       console.log("Offer deleted successfully");
       fetchOffers();
-    } catch (error) {
+    } catch (error: any) { 
       console.error("Error deleting offer:", error);
-      alert(`An error occurred while deleting offer: ${error.message}`);
+      alert(`An error occurred while deleting offer: ${(error as Error).message}`); 
     }
   }
 

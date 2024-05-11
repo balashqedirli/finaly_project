@@ -9,7 +9,7 @@ const fetchProducts = async () => {
       }
       return data;
     } catch (error) {
-      throw new Error('An error occurred: Failed to fetch products.'); // Hata metnini güncelledik.
+      throw new Error('An error occurred: Failed to fetch products.'); 
     }
   };
   

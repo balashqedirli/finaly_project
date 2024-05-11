@@ -30,15 +30,15 @@ export default function Restaurants() {
       } else {
         console.error("API Response:", response.data);
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error fetching restaurants:", error);
-      alert(`An error occurred while fetching restaurants: ${error.message}`);
+      alert(`An error occurred while fetching restaurants: ${(error as Error).message}`); 
     }
   }
 
   useEffect(() => {
     fetchRestaurants();
-    const interval = setInterval(fetchRestaurants, 2000);
+    const interval = setInterval(fetchRestaurants, 1000);
     return () => clearInterval(interval);
   }, []);
 
@@ -49,9 +49,9 @@ export default function Restaurants() {
       
      
       fetchRestaurants();
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error deleting restaurant:", error);
-      alert(`An error occurred while deleting restaurant: ${error.message}`);
+      alert(`An error occurred while deleting restaurant: ${(error as Error).message}`); 
     }
   }
 

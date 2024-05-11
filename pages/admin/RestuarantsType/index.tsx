@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "../styles/restuarantsType.module.css";
-
 import Image from "next/image";
 import upload from "../../../public/images/upload.svg";
 import cancelButton from "../../../public/images/cancelbutton.svg";

@@ -2,7 +2,6 @@ import Navbar from "../pages/admin/Navbar/index";
 import Sidebar from "../pages/admin/Sidebar/index";
 import Footer from "../pages/admin/Footer/index";
 import styles from "./layoutAdmin.module.css";
-
 import React, { ReactNode } from "react";
 import RestuarantsType from "../pages/admin/RestuarantsType";
 
@@ -18,10 +17,7 @@ export default function LayoutAdmin({ children }: LayoutAdminProps) {
       <div className={styles.box}>
         <Sidebar />
 
-        <main className={styles.main}>
-        {children}
-        </main>
-       
+        <main className={styles.main}>{children}</main>
       </div>
 
       <div>

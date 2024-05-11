@@ -11,6 +11,7 @@ import cheesburgers from "../../../public/images/cheesburgers.svg";
 import LayoutClient from "../../../layoutClient/index";
 import Link from "next/link";
 
+
 const Home: NextPage = () => {
   return (
     <LayoutClient>
@@ -19,18 +20,19 @@ const Home: NextPage = () => {
           <div className={styles.contentContainer}>
             <div className={styles.content}>
               <h1 className={styles.text}>
-                Our Food site makes it<br></br> easy to find local food
+           
+                <FormattedMessage id="text" />
               </h1>
 
               <p className={styles.paragraph}>
-                Lorem ipsum is placeholder text commonly used<br></br> in the
-                graphic, print, and publishing industries for<br></br>{" "}
-                previewing layouts and visual mockups.
+                <FormattedMessage id="pg" />
               </p>
               <Link href="/Register" >
               <button className={styles.btn}>Register</button>
               </Link>
+              <Link  href="/Restaurants" >
               <button className={styles.btnn}>Order now</button>
+              </Link>
             </div>
 
             <div className={styles.imageContainer}>

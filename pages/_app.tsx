@@ -1,14 +1,15 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
-import { IntlProvider } from 'react-intl'; 
-import azMessages from '../Components/language/locales/az.json';
-import enMessages from '../Components/language/locales/en.json';
-import ruMessages from '../Components/language/locales/ru.json';
-import { useRouter } from 'next/router';
-import { AuthProvider } from '../pages/AuthContext/Authcontext';
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import { IntlProvider } from "react-intl";
+import azMessages from "../Components/language/locales/az.json";
+import enMessages from "../Components/language/locales/en.json";
+import ruMessages from "../Components/language/locales/ru.json";
+import { useRouter } from "next/router";
+import { AuthProvider } from "../pages/AuthContext/Authcontext";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { BasketProvider } from "../pages/Context/BasketContext";
 
-
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { OrderProvider } from "../pages/contexts/OrderContext";
 
 const queryClient = new QueryClient();
 type LocaleMessages = {
@@ -18,25 +19,24 @@ type LocaleMessages = {
 export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const { locale } = router;
-  
- 
-  const messages: LocaleMessages = { 
+
+  const messages: LocaleMessages = {
     az: azMessages,
     en: enMessages,
-    ru: ruMessages
+    ru: ruMessages,
   };
 
-  return ( 
-    <AuthProvider>
-
-    <QueryClientProvider client={queryClient}>
-
-    <IntlProvider locale={locale!} messages={messages[locale!]}>
-      <Component {...pageProps} />
-    </IntlProvider>
-    </QueryClientProvider>
-    </AuthProvider>
-
-
+  return (
+    <OrderProvider>
+      <BasketProvider>
+        <AuthProvider>
+          <QueryClientProvider client={queryClient}>
+            <IntlProvider locale={locale!} messages={messages[locale!]}>
+              <Component {...pageProps} />
+            </IntlProvider>
+          </QueryClientProvider>
+        </AuthProvider>
+      </BasketProvider>
+    </OrderProvider>
   );
 }

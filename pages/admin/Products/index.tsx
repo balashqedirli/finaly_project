@@ -30,15 +30,15 @@ export default function Products() {
       } else {
         console.error("API Response:", response.data);
       }
-    } catch (error) {
+    } catch (error: any) { 
       console.error("Error fetching products:", error);
-      alert(`An error occurred while fetching products: ${error.message}`);
+      alert(`An error occurred while fetching products: ${(error as Error).message}`);
     }
   }
 
   useEffect(() => {
     fetchProducts();
-    const interval = setInterval(fetchProducts, 2000);
+    const interval = setInterval(fetchProducts, 1000);
     return () => clearInterval(interval);
   }, []);
 
@@ -48,9 +48,9 @@ export default function Products() {
       console.log("Product deleted successfully:", response.data);
       
       fetchProducts();
-    } catch (error) {
+    } catch (error: any) { 
       console.error("Error deleting product:", error);
-      alert(`An error occurred while deleting product: ${error.message}`);
+      alert(`An error occurred while deleting product: ${(error as Error).message}`); 
     }
   }
 
@@ -75,6 +75,7 @@ export default function Products() {
               <h2 className={styles.name}>{product.name}</h2>
               <p className={styles.description}>{product.description}</p>
               <p className={styles.price}>Price: ${product.price}</p>
+              
               <Image
                 src={deleteIcon}
                 alt="Delete icon"

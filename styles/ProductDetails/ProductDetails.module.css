@@ -1,0 +1,149 @@
+.container {
+  display: flex;
+  
+}
+
+.basket {
+  width: 66.5%;
+  margin-left: 20px;
+  margin-top: 20px;
+  border: 1px solid rgb(11, 11, 11);
+  border-radius: 10px;
+}
+
+.basketHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  color: rgb(79, 79, 79);
+  font-family: Mukta;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 3%;
+  text-align: left;
+}
+
+.itemCount {
+  color: red;
+  font-weight: bold;
+}
+
+.basketItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}
+
+.itemInfo {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.itemInfo img {
+  width: 60px;
+  margin-right: 10px;
+}
+
+.quantityControl {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.quantityControl button {
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin: 0 5px;
+}
+
+.removeItem {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.checkoutContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.totalPrice {
+  font-size: 24px;
+  font-weight: bold;
+  color: red;
+}
+
+.checkoutButton {
+  background-color: red;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.productName {
+    font-size: 20px;
+}
+
+.productDescription {
+    font-size: 15px;
+}
+
+.productPrice {
+    font-size: 19px;
+    font-weight: bold;
+    margin-right: 17px;
+}
+
+
+
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .basket {
+    width: 100%;
+  }
+
+  .basketHeader {
+    text-align: center;
+  }
+
+  .basketItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .itemInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .productName, .productDescription, .productPrice {
+    text-align: center;
+  }
+
+  .quantityControl {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+}

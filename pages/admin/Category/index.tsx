@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import LayoutAdmin from "../../../layoutAdmin/index";
-import TypeCategory from '../CategoryType/index'
+import TypeCategory from "../CategoryType/index";
 import Image from "next/image";
-import styles from '../styles/category.module.css';
-import deleteIcon from '../../../public/images/delete.svg'
+import styles from "../styles/category.module.css";
+import deleteIcon from "../../../public/images/delete.svg";
 
 interface Category {
   id: string;
@@ -20,21 +20,25 @@ export default function Category() {
     try {
       const response = await axios.get("http://localhost:3000/api/category");
       console.log(response.data);
-      
-      if (response.status === 200 && response.data && Array.isArray(response.data.result.data)) {
+
+      if (
+        response.status === 200 &&
+        response.data &&
+        Array.isArray(response.data.result.data)
+      ) {
         setCategory(response.data.result.data);
       } else {
         console.error("API Response:", response.data);
       }
-    } catch (error) {
+    } catch (error: any) { 
       console.error("Error fetching categories:", error);
-      alert(`An error occurred while fetching categories: ${error.message}`);
+      alert(`An error occurred while fetching categories: ${(error as Error).message}`); 
     }
   }
 
   useEffect(() => {
     fetchCategory();
-    const interval = setInterval(fetchCategory, 2000);
+    const interval = setInterval(fetchCategory, 1000);
     return () => clearInterval(interval);
   }, []);
 
@@ -43,16 +47,14 @@ export default function Category() {
       await axios.delete(`http://localhost:3000/api/category/${id}`);
       console.log("Category deleted successfully");
       fetchCategory();
-    } catch (error) {
+    } catch (error: any) { 
       console.error("Error deleting category:", error);
-      alert(`An error occurred while deleting category: ${error.message}`);
+      alert(`An error occurred while deleting category: ${(error as Error).message}`); 
     }
   }
 
   return (
-
-
-<LayoutAdmin>
+    <LayoutAdmin>
       <div>
         <TypeCategory />
       </div>
@@ -91,7 +93,7 @@ export default function Category() {
                       alt="Delete icon"
                       width={30}
                       height={30}
-                      onClick={() => deleteCategory(categoryItem.id)} 
+                      onClick={() => deleteCategory(categoryItem.id)}
                       className={styles.deleteIcon}
                     />
                   </td>

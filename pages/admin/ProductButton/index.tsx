@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import styles from "../styles/productButton.module.css";
 import Image from "next/image";
 import upload from "../../../public/images/upload.svg";
@@ -53,7 +53,7 @@ export default function Product() {
 
   const handleCreateProduct = async () => {
     if (description === "" || price === "") {
-      alert("Butun xanalari doldurun");
+      alert("Please fill in all fields");
       return;
     }
     try {
@@ -66,7 +66,6 @@ export default function Product() {
       });
       if (response.status === 200) {
         alert("Product created successfully!");
-    
       }
     } catch (error) {
       console.error("Error creating product:", error);
@@ -74,14 +73,10 @@ export default function Product() {
     }
   };
 
-
-  
-  
-
   return (
     <div className={styles.div}>
       <p className={styles.product} onClick={toggleMenu}>
-        + ADD PRODUCT{" "}
+        + ADD PRODUCT
       </p>
 
       <div className={isOpen ? styles.menuOpen : styles.menu}>
@@ -120,7 +115,7 @@ export default function Product() {
           </div>
         </div>
         <div className={styles.description}>
-          <p>Add your Product description </p>
+          <p>Add your Product description</p>
           <p>and necessary information</p>
         </div>
         <div className={styles.boxing}>
@@ -143,14 +138,12 @@ export default function Product() {
                   onChange={(e) => setDescription(e.target.value)}
                 ></textarea>
                 <input
-                  type="number"
+                  type="text"
                   id="price"
-                  min="0"
-                  step="1"
                   placeholder="Price"
                   className={styles.number}
                   value={price || ""}
-                  onChange={(e) => setPrice(parseInt(e.target.value))}
+                  onChange={(e) => setPrice(e.target.value)}
                 />
 
                 <select
@@ -169,21 +162,19 @@ export default function Product() {
         <div className={styles.buttonContainer}>
           <button
             className={styles.cancelButton}
-            
             onClick={() => setIsOpen(false)}
           >
             Cancel
           </button>
           <button
-  className={styles.createProductButton}
-  onClick={() => {
-    handleCreateProduct();
-      setIsOpen(false);
-  }}
->
-  Create Product
-</button>
-
+            className={styles.createProductButton}
+            onClick={() => {
+              handleCreateProduct();
+              setIsOpen(false);
+            }}
+          >
+            Create Product
+          </button>
         </div>
       </div>
     </div>

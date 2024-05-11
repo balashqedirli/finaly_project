@@ -1,39 +1,36 @@
-
 .tableContainer {
-    overflow-x: auto;
-   
-  }
-  
-  .table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .table th, .table td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .table th {
-    background-color: #f2f2f2;
-  }
+  overflow-x: auto;
+}
 
-  .table tr {
-    background-color: #fff;
-  }
-  
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
 
-  .imageCell {
-    width: 150px;
-  }
-  
-  .imageCell img {
-    width: 100%;
-    height: auto;
-  }
-  
-  .deleteIcon {
-    cursor: pointer;
-  }
-  
+.table th,
+.table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #f2f2f2;
+}
+
+.table tr {
+  background-color: #fff;
+}
+
+.imageCell {
+  width: 150px;
+}
+
+.imageCell img {
+  width: 100%;
+  height: auto;
+}
+
+.deleteIcon {
+  cursor: pointer;
+}
